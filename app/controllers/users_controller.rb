@@ -116,6 +116,7 @@ class UsersController < ApplicationController
     unless params[:add_game].nil?
       unless BggAccount.where("user_id = ? AND game_id = ?", @user, params[:add_game]).exists?
         @user.bgg_accounts.create(game: Game.find(params[:add_game].to_i), favorite: "f")
+        flash[:success] = "Game added to collection"
       end
     end
     @suggestions = []
@@ -133,6 +134,7 @@ class UsersController < ApplicationController
   def delete_game
     @user = User.find(params[:id])
     BggAccount.where("game_id = ?", params[:game_id]).where("user_id = ?", @user.id).destroy_all
+    flash[:danger] = "Game deleted"
     redirect_to find_game_path
   end
     

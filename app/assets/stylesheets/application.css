@@ -116,10 +116,11 @@ p:nth-child(1) a:hover{
   animation: neon1 1.5s ease-in-out infinite alternate; 
 }
 
-span{
+.blahblah{
   color:#FFDD1B;
   font-family:Iceland;
 }
+
 p:nth-child(2) a{
   font-size:1.5em;
   color: red;
